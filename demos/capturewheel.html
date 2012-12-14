@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=9">
+		<title>Capture keys</title>
+
+		<script src="../libs/jquery/jquery-1.8.3.js"></script>
+		<script src="../dist/jquery.capturewheel.js"></script>
+	</head>
+	<body>
+		<textarea id="in" cols="40" rows="10" style="font-size:20px">
+aaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccc
+ddddddddddddddddddd
+eeeeeeeeeeeeeeeeeee
+fffffffffffffffffff
+ggggggggggggggggggg
+hhhhhhhhhhhhhhhhhhh
+iiiiiiiiiiiiiiiiiii
+jjjjjjjjjjjjjjjjjjj
+kkkkkkkkkkkkkkkkkkk
+lllllllllllllllllll
+mmmmmmmmmmmmmmmmmmm
+nnnnnnnnnnnnnnnnnnn
+ooooooooooooooooooo
+ppppppppppppppppppp
+rrrrrrrrrrrrrrrrrrr
+sssssssssssssssssss
+ttttttttttttttttttt
+uuuuuuuuuuuuuuuuuuu
+vvvvvvvvvvvvvvvvvvv
+		</textarea>
+		<div id="out"></div>
+		<script>
+			$("#in")
+				.capturewheel()
+				.on("dom3wheel", function(e) {
+					var result;
+					switch(e.deltaMode) {
+						case 0:
+							result = { scroll: "pixel", pixels: e.deltaY, dir: (e.deltaY>0)?"Down":"Up" };
+							break;
+						case 1:
+							result = { scroll: "line", lines: e.deltaY, dir: (e.deltaY>0)?"Down":"Up" };
+							break;
+						default:
+							result = "Unsupported deltaMode" + e.deltaMode;
+							break;
+					};
+					$("#out").append($("<div>", {text: JSON.stringify(result)}));
+				});
+		</script>
+	</body>
+</html>

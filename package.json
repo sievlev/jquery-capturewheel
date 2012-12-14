@@ -1,0 +1,25 @@
+{
+	"name": "jquery.capturewheel",
+	"title": "Translate non-standard wheel related events to DOM 3 events",
+	"description": "This module tries to simplify wheel event handling across different browsers",
+	"homepage": "https://github.com/sievlev/jquery-capturewheel",
+	"version": "0.0.1",
+	"author": {
+		"name": "Stanislav Ievlev",
+		"email": "stanislav.ievlev@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/sievlev/jquery-capturewheel.git"
+	},
+	"bugs": {
+		"url": "https://github.com/sievlev/jquery-capturewheel/issues"
+	},
+	"licenses": [{
+		"type": "MIT",
+		"url": "https://github.com/sievlev/jquery-capturewheel/blob/master/LICENSE.txt"
+	}],
+	"devDependencies": {
+		"grunt": "~0.3.16"
+	}
+}
